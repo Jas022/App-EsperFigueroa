@@ -1,5 +1,11 @@
-function App() {
-  return <h1>Estoy en app</h1>;
-}
+import Navbar from "./components/layout/navbar/Navbar";
+
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
+};
 
 export default App;
