@@ -11,14 +11,14 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         {/* <ItemDetailContainer /> */}
-        <ItemListContainer />
-        <ItemDetailContainer />
+        {/* <ItemListContainer />
+        <ItemDetailContainer /> */}
         {/* <FetchingDeDatosContainer /> */}
         <Routes>
-          <Route path="/" element={<ItemDetailContainer />} />
+          <Route path="/" element={<ItemListContainer />} />
           <Route
             path="/category/:category:Id"
-            element={<ItemDetailContainer />}
+            element={<ItemListContainer />}
           />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="*" element={<h1>404 NOT FOUND</h1>} />

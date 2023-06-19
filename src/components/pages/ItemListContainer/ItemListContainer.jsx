@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ItemListPresentacional from "./ItemListPresentacional";
+// import ItemListPresentacional from "./ItemListPresentacional";
 import { getProducts, getProductsByCategory } from "../../../productsMock";
-import ItemCount from "../../ItemCount/ItemCount";
+// import ItemCount from "../../ItemCount/ItemCount";
 import ItemList from "../../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
