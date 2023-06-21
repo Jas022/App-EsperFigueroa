@@ -10,7 +10,7 @@ export const products = [
 
     description: "Maceta Blanca detalle de flores, ceramica blanca",
 
-    category: "Macetas",
+    category: "Artesanias",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716139/maceta6_xbjx1n.jpg",
   },
@@ -88,7 +88,7 @@ export const products = [
 
     description: "Maceta blancablanca con pie",
 
-    category: "Macetas",
+    category: "Artesanias",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686717723/maceta7_lbvav4.jpg",
   },
@@ -103,7 +103,7 @@ export const products = [
 
     description: "Maceta detalles verde",
 
-    category: "Macetas",
+    category: "Artesanias",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716854/maceta5_gszbm9.jpg",
   },
@@ -118,7 +118,7 @@ export const products = [
 
     description: "Reloj negro con detalles dorados",
 
-    category: "Deco Hogar",
+    category: "DecoHogar",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716932/decohogar10_rxpt3c.jpg",
   },
@@ -133,7 +133,7 @@ export const products = [
 
     description: "Florero blanco con forma",
 
-    category: "Deco Hogar",
+    category: "DecoHogar",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716984/decohogar3_eyemos.jpg",
   },
@@ -147,7 +147,7 @@ export const getProducts = () => {
   });
 };
 
-export const getProductsById = (productId) => {
+export const getProductById = (productId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products.find((prod) => prod.id === productId));

@@ -10,9 +10,10 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Navbar />
+
+        {/* <ItemListContainer /> */}
         {/* <ItemDetailContainer /> */}
-        {/* <ItemListContainer />
-        <ItemDetailContainer /> */}
+
         {/* <FetchingDeDatosContainer /> */}
         <Routes>
           <Route path="/" element={<ItemListContainer />} />

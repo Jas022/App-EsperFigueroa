@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getProductsById } from "../../../productsMock";
+import { getProductById } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
 
   const { itemId } = useParams();
   useEffect(() => {
-    getProductsById(itemId)
+    getProductById(itemId)
       .then((response) => {
         setProduct(response);
       })
