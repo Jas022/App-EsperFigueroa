@@ -118,7 +118,7 @@ export const products = [
 
     description: "Reloj negro con detalles dorados",
 
-    category: "DecoHogar",
+    category: "Deco Hogar",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716932/decohogar10_rxpt3c.jpg",
   },
@@ -133,7 +133,7 @@ export const products = [
 
     description: "Florero blanco con forma",
 
-    category: "DecoHogar",
+    category: "Deco Hogar",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716984/decohogar3_eyemos.jpg",
   },
@@ -158,7 +158,7 @@ export const getProductById = (productId) => {
 export const getProductsByCategory = (productCategory) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.find((prod) => prod.category === productCategory));
+      resolve(products.filter((prod) => prod.category === productCategory));
     }, 500);
   });
 };

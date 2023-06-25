@@ -7,7 +7,7 @@ import {
   Button,
 } from "@mui/material";
 import CartWidget from "../../CartWidget/CartWidget";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Outlet } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
               <NavLink
                 to={`/category/Artesanias`}
                 className={({ isActive }) =>
-                  isActive ? "ActiveOption" : "Option"
+                  isActive ? `ActiveOption` : `Option`
                 }
               >
                 <Button color="secondary">Artesanias</Button>
@@ -50,12 +50,12 @@ const Navbar = () => {
                 <Button color="secondary">Artistica</Button>
               </NavLink>
               <NavLink
-                to={`/category/DecoHogar`}
+                to={`/category/Deco Hogar`}
                 className={({ isActive }) =>
                   isActive ? "ActiveOption" : "Option"
                 }
               >
-                <Button color="secondary">DecoHogar</Button>
+                <Button color="secondary">Deco Hogar</Button>
               </NavLink>
               <NavLink
                 to={`/category/Sahumos`}
@@ -70,6 +70,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
       </Box>
+      <Outlet />
     </nav>
   );
 };

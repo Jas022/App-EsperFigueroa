@@ -1,0 +1,30 @@
+.ItemFooter button {
+    background-color: #f0aba4;
+    color: white;
+
+}
+
+.Info {
+    font-size: 16px;
+
+}
+
+.ItemHeader {
+    font-size: 22 px;
+}
+
+.cards.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.CardItem {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
