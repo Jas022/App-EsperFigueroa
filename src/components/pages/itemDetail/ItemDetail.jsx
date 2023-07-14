@@ -1,8 +1,30 @@
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import ItemCount from "../../ItemCount/ItemCount";
 import "./ItemDetail.css";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../../context/CartContext";
+import Swal from "sweetalert2";
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({
+  id,
+  name,
+  img,
+  category,
+  description,
+  price,
+  stock,
+  cantidad,
+  onAdd,
+}) => {
+  const [quantityAdded, setQuantityAdded] = useState(0);
+
   return (
     <article className="CardItem">
       <Card sx={{ width: 345 }}>
@@ -25,11 +47,13 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             </Typography>
           </section>
           <footer className="ItemFooter">
-            <ItemCount
-              initial={1}
-              stock={stock}
-              onAdd={(quantity) => console.log("Cantidad agregada", quantity)}
-            ></ItemCount>
+            {quantityAdded > 0 ? (
+              <Link to="/carrito" className="Option">
+                <Button variant="contained">Terminar Compra</Button>
+              </Link>
+            ) : (
+              <ItemCount stock={stock} initial={cantidad} onAdd={onAdd} />
+            )}
           </footer>
         </CardContent>
       </Card>

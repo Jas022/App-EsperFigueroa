@@ -1,0 +1,26 @@
+.Button-agregar {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+.Button-agregar button {
+    font-size: 12px;
+}
+
+.count--container {
+    display: flex;
+}
+
+.Button {
+    display: flex;
+}
+
+
+.number {
+    margin-left: 42px;
+    margin-right: 42px;
+    font-size: 15px;
+    font-weight: 10px;
+}

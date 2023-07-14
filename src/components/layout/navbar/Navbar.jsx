@@ -7,8 +7,9 @@ import {
   Button,
 } from "@mui/material";
 import CartWidget from "../../CartWidget/CartWidget";
-import { NavLink, Link, Outlet } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
+import { menuNavigate } from "../../../routes/menuNavigate";
 
 const Navbar = () => {
   return (
@@ -33,44 +34,16 @@ const Navbar = () => {
               </Typography>
             </Link>
             <div className="Categories">
-              <NavLink
-                to={`/category/Artesanias`}
-                className={({ isActive }) =>
-                  isActive ? `ActiveOption` : `Option`
-                }
-              >
-                <Button color="secondary">Artesanias</Button>
-              </NavLink>
-              <NavLink
-                to={`/category/Artistica`}
-                className={({ isActive }) =>
-                  isActive ? "ActiveOption" : "Option"
-                }
-              >
-                <Button color="secondary">Artistica</Button>
-              </NavLink>
-              <NavLink
-                to={`/category/Deco Hogar`}
-                className={({ isActive }) =>
-                  isActive ? "ActiveOption" : "Option"
-                }
-              >
-                <Button color="secondary">Deco Hogar</Button>
-              </NavLink>
-              <NavLink
-                to={`/category/Sahumos`}
-                className={({ isActive }) =>
-                  isActive ? "ActiveOption" : "Option"
-                }
-              >
-                <Button color="secondary">Sahumos</Button>
-              </NavLink>
+              {menuNavigate.map(({ id, path, title }) => (
+                <Link key={id} to={path}>
+                  <Button color="secondary">{title}</Button>
+                </Link>
+              ))}
             </div>
             <CartWidget />
           </Toolbar>
         </AppBar>
       </Box>
-      <Outlet />
     </nav>
   );
 };

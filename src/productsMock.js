@@ -6,7 +6,7 @@ export const products = [
 
     price: 700,
 
-    stock: 2,
+    stock: 10,
 
     description: "Maceta Blanca detalle de flores, ceramica blanca",
 
@@ -22,7 +22,7 @@ export const products = [
 
     price: 500,
 
-    stock: 5,
+    stock: 10,
 
     description: "Sahumerios perfume Jazmin",
 
@@ -38,7 +38,7 @@ export const products = [
 
     price: 500,
 
-    stock: 5,
+    stock: 10,
 
     description: "Sahumerios perfume Rosas",
 
@@ -54,7 +54,7 @@ export const products = [
 
     price: 700,
 
-    stock: 5,
+    stock: 10,
 
     description: "Perlas perfumadas olor primavera",
 
@@ -69,7 +69,7 @@ export const products = [
 
     price: 700,
 
-    stock: 5,
+    stock: 10,
 
     description: "Perlas perfumadas olor Lavanda",
 
@@ -84,7 +84,7 @@ export const products = [
 
     price: 900,
 
-    stock: 5,
+    stock: 10,
 
     description: "Maceta blancablanca con pie",
 
@@ -99,7 +99,7 @@ export const products = [
 
     price: 900,
 
-    stock: 5,
+    stock: 10,
 
     description: "Maceta detalles verde",
 
@@ -114,7 +114,7 @@ export const products = [
 
     price: 3000,
 
-    stock: 5,
+    stock: 10,
 
     description: "Reloj negro con detalles dorados",
 
@@ -129,13 +129,58 @@ export const products = [
 
     price: 2500,
 
-    stock: 5,
+    stock: 10,
 
     description: "Florero blanco con forma",
 
     category: "Deco Hogar",
 
     img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1686716984/decohogar3_eyemos.jpg",
+  },
+  {
+    id: 10,
+
+    name: "Pinceles",
+
+    price: 1000,
+
+    stock: 100,
+
+    description: "Pinceles distintos tamaños y formas",
+
+    category: "Artistica",
+
+    img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1689136275/Pinceles_swqjnx.jpg",
+  },
+  {
+    id: 11,
+
+    name: "Pintura Chalk",
+
+    price: 1500,
+
+    stock: 40,
+
+    description: "Pinturas Chalk multisuperficies, varios colores",
+
+    category: "Artistica",
+
+    img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1689136225/Chalk_ynhlyu.jpg",
+  },
+  {
+    id: 12,
+
+    name: "Lienzos",
+
+    price: 2000,
+
+    stock: 30,
+
+    description: "Lienzos distintos tamaños",
+
+    category: "Artistica",
+
+    img: "https://res.cloudinary.com/dcp0gctln/image/upload/v1689136156/lienzos_rjxeec.jpg",
   },
 ];
 

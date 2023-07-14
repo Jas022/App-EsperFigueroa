@@ -1,25 +1,22 @@
-import CartWidget from "./components/CartWidget/CartWidget";
-import Navbar from "./components/layout/navbar/Navbar";
-import ItemListContainer from "./components/pages/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/pages/itemDetail/ItemDetailContainer";
+import Layout from "./components/layout/Layout";
+import CartContextProvider from "./context/CartContext";
+import { menuRoutes } from "./routes/menuRoutes";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route element={<Navbar />} />
-          <Route path="/carrito" element={<CartWidget />} />
-          <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/category/:categoryName"
-            element={<ItemListContainer />}
-          />
-          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="*" element={<h1>404 NOT FOUND</h1>} />
-        </Routes>
+        <CartContextProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              {menuRoutes.map(({ id, path, Element }) => (
+                <Route key={id} path={path} element={<Element />} />
+              ))}
+              <Route path="*" element={<h1>404 NOT FOUND</h1>} />
+            </Route>
+          </Routes>
+        </CartContextProvider>
       </BrowserRouter>
     </div>
   );
