@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-import { getProductById } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../../../context/CartContext";
 import { RotateLoader } from "react-spinners";
@@ -21,6 +20,13 @@ const ItemDetailContainer = () => {
   const { itemId } = useParams();
   const cantidad = getTotalQuantityById(itemId);
   // console.log("la cantidad es:", cantidad);
+  useEffect(() => {
+    let itemCollection = collection(db, "products");
+    let refDoc = doc(itemCollection, itemId);
+    getDoc(refDoc).then((res) => {
+      setProduct({ ...res.data(), itemId: res.id });
+    });
+  }, [itemId]);
 
   const onAdd = (cantidad) => {
     let data = {
@@ -37,13 +43,6 @@ const ItemDetailContainer = () => {
       timer: 1500,
     });
   };
-  useEffect(() => {
-    let itemCollection = collection(db, "products");
-    let refDoc = doc(itemCollection, itemId);
-    getDoc(refDoc).then((res) => {
-      setProduct({ ...res.data(), itemId: res.itemId });
-    });
-  }, [itemId]);
   return (
     <div className="ItemDetailContainer">
       {product.price ? (

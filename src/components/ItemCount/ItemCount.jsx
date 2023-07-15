@@ -1,71 +1,54 @@
 import { Button } from "@mui/material";
 import "./ItemCount.css";
 import { useCount } from "../hooks/useCount";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 export const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const { count, decrement, increment } = useCount(initial, stock);
-
+  const [isAdd, setIsAdd] = useState(false);
+  const navigate = useNavigate();
   return (
     <div className="count--container">
-      <Button disabled={stock < 1 ? true : false} variant="contained">
-        <div className="Button" onClick={decrement}>
-          -
-        </div>
+      {!isAdd && (
+        <>
+          <Button disabled={stock < 1 ? true : false} variant="contained">
+            <div className="Button" onClick={decrement}>
+              -
+            </div>
 
-        <h2 className="number">{count}</h2>
+            <h2 className="number">{count}</h2>
 
-        <div className="Button" onClick={increment}>
-          +
-        </div>
-      </Button>
-      <div className="Button-agregar">
+            <div className="Button" onClick={increment}>
+              +
+            </div>
+          </Button>
+        </>
+      )}
+      {isAdd ? (
         <Button
           variant="contained"
-          className="Button"
-          onClick={() => onAdd(count)}
+          onClick={() => {
+            navigate("/carrito");
+          }}
         >
-          Agregar al carrito
+          Ir al Carrito
         </Button>
-      </div>
+      ) : (
+        <div className="Button-agregar">
+          <Button
+            variant="contained"
+            className="Button"
+            onClick={() => {
+              onAdd(count);
+              setIsAdd(true);
+            }}
+          >
+            Agregar al carrito
+          </Button>
+        </div>
+      )}
     </div>
   );
-  // const [quantity, setQuantity] = useCount(initial, stock);
-
-  // const increment = () => {
-  //   if (quantity < stock) {
-  //     setQuantity(quantity + 1);
-  //   }
-  // };
-  // const decrement = () => {
-  //   if (quantity <= stock) {
-  //     setQuantity(quantity - 1);
-  //   }
-  // };
-  // // console.log(quantity);
-  // return (
-  //   <div className="Counter">
-  //     <div className="Controls">
-  //       <Button variant="contained">
-  //         <div className="Button" onClick={decrement}>
-  //           -
-  //         </div>
-  //         <h4 className="Number">{quantity}</h4>
-  //         <div className="Button" onClick={increment}>
-  //           +
-  //         </div>
-  // </Button>
-  // </div>
-  //     <div className="Button-agregar">
-  //       <Button
-  //         variant="contained"
-  //         className="Button"
-  //         onClick={() => onAdd(quantity)}
-  //       >
-  //         Agregar al carrito
-  //       </Button>
-  //     </div>
-  //   </div>
-  // // );
-  // )
 };
 
 export default ItemCount;

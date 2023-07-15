@@ -6,9 +6,9 @@ const Cart = ({ cart, limpiar, removeItem, total }) => {
     <div>
       <div className="cart-container">
         <div className="container-items">
-          {cart.map((product) => {
+          {cart.map((product, index) => {
             return (
-              <div key={product.id} className="cart-item">
+              <div key={index} className="cart-item">
                 <img src={product.img} alt="" />
                 <div className="cart-item-info">
                   <h2>{product.name}</h2>
@@ -17,7 +17,7 @@ const Cart = ({ cart, limpiar, removeItem, total }) => {
                 </div>
                 <Button
                   variant="contained"
-                  onClick={() => removeItem(product.id)}
+                  onClick={() => removeItem(product.itemId)}
                 >
                   Quitar
                 </Button>
@@ -25,6 +25,7 @@ const Cart = ({ cart, limpiar, removeItem, total }) => {
             );
           })}
         </div>
+
         <div className="cart-info">
           <h2>Descripcion del carrito:</h2>
           <h3>Cantidad de productos: </h3>

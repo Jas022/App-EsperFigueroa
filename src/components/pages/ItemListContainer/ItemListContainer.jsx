@@ -27,30 +27,22 @@ const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     let itemsCollection = collection(db, "products");
     let consulta;
-    if (!categoryName) {
-      consulta = itemsCollection;
-    } else {
+    if (categoryName) {
       consulta = query(itemsCollection, where("category", "==", categoryName));
+    } else {
+      consulta = itemsCollection;
     }
     getDocs(consulta)
       .then((res) => {
-        let product = res.docs.map((elemento) => {
+        let products = res.docs.map((elemento) => {
           return {
             ...elemento.data(),
             id: elemento.id,
           };
         });
-        setProducts(product);
+        setProducts(products);
       })
       .catch((err) => console.log(err));
-    // const asyncFunc = categoryName ? getProductsByCategory : getProducts;
-    // asyncFunc(categoryName)
-    //   .then((response) => {
-    //     setProducts(response);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
   }, [categoryName]);
   if (products.length === 0) {
     return (

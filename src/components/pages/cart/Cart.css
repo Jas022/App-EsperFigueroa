@@ -4,7 +4,7 @@
     min-height: 90vh;
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
+
 }
 
 .container-items {
@@ -44,7 +44,7 @@
     justify-content: space-between;
     height: 100px;
     align-items: center;
-    /* border: 1px solid #7F669D; */
+
     box-shadow: 0px 2px 5px 0px #7F669D;
     border-radius: 10px;
     padding: 0 10px;
@@ -57,7 +57,7 @@
     object-fit: cover;
 }
 
-/* Aca la tarjeta */
+
 .cart-item-info {
     width: 80%;
     height: 100px;

@@ -7,13 +7,10 @@ import {
 } from "@mui/material";
 import ItemCount from "../../ItemCount/ItemCount";
 import "./ItemDetail.css";
-import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../context/CartContext";
-import Swal from "sweetalert2";
+import { useState } from "react";
 
 const ItemDetail = ({
-  id,
   name,
   img,
   category,
