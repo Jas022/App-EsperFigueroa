@@ -28,14 +28,12 @@ const Item = ({ id, name, img, category, price, stock }) => {
               <p className="Info">Stock disponible: {stock}</p>
             </Typography>
           </section>
-
-          <footer className="ItemFooter">
-            <Typography variant="body2" color="text.secondary">
-              <Link to={`/item/${id}`} className="Option">
-                <Button variant="contained">Ver detalle</Button>
-              </Link>
-            </Typography>
-          </footer>
+          <Typography variant="body2" color="text.secondary">
+            <Link to={`/item/${id}`} className="Option">
+              <Button variant="contained">Ver detalle</Button>
+            </Link>
+          </Typography>
+          <footer className="ItemFooter"></footer>
         </CardContent>
       </Card>
     </article>
