@@ -6,42 +6,37 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
-  console.log(cart);
-  const addItem = (newProduct) => {
-    let exist = isInCart(newProduct.id);
 
-    if (exist) {
-      let newArray = cart.map((product) => {
-        if (product.id === newProduct.id) {
-          return {
-            ...product,
-            quantity: newProduct.quantity,
-          };
-        } else {
-          return product;
-        }
-      });
-      setCart(newArray);
-      localStorage.setItem("cart", JSON.stringify(newArray));
+  const addItem = (item, quantity) => {
+    if (isInCart(item.itemId)) {
+      setCart(
+        cart.map((product) => {
+          return product.itemId === item.itemId
+            ? { ...product, quantity: product.quantity + quantity }
+            : product;
+        })
+      );
     } else {
-      setCart([...cart, newProduct]);
-      localStorage.setItem("cart", JSON.stringify([...cart, newProduct]));
+      setCart([...cart, { ...item, quantity }]);
     }
   };
+  //     setCart(newArray);
+  //     localStorage.setItem("cart", JSON.stringify(newArray));
+  //   } else {
+  //     setCart([...cart, newProduct]);
+  //     localStorage.setItem("cart", JSON.stringify([...cart, newProduct]));
+  //   }
+  // };
 
-  const isInCart = (itemId) => {
-    let exist = cart.some((prod) => prod.id === +itemId);
-    return exist;
-  };
+  const isInCart = (id) =>
+    cart.find((product) => product.id === id) ? true : false;
+
   const clearCart = () => {
     setCart([]);
     localStorage.removeItem("cart");
   };
-  const removeItem = (itemId) => {
-    let newArray = cart.filter((product) => product.id !== itemId);
-    setCart(newArray);
-    localStorage.setItem("cart", JSON.stringify(newArray));
-  };
+  const removeItem = (id) =>
+    setCart(cart.filter((product) => product.itemId !== id));
 
   const getTotalQuantityById = (itemId) => {
     let producto = cart.find((prod) => prod.id === itemId);

@@ -6,9 +6,9 @@ const Cart = ({ cart, limpiar, removeItem, total }) => {
     <div>
       <div className="cart-container">
         <div className="container-items">
-          {cart.map((product, index) => {
+          {cart.map((product) => {
             return (
-              <div key={index} className="cart-item">
+              <div key={product.itemId} className="cart-item">
                 <img src={product.img} alt="" />
                 <div className="cart-item-info">
                   <h2>{product.name}</h2>

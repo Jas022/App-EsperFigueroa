@@ -1,0 +1,21 @@
+.opciones-footer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.contenedor-footer {
+    background-color: #9575CD;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+
+h3 {
+    margin-bottom: 50px;
+
+}

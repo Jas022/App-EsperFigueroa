@@ -8,7 +8,7 @@ import { CartContext } from "../../../context/CartContext";
 
 const CheckoutContainer = () => {
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
-  const { orderId, setOrderId } = useState(null);
+  const [orderId, setOrderId] = useState(null);
 
   let total = getTotalPrice();
 
@@ -30,7 +30,7 @@ const CheckoutContainer = () => {
       addDoc(ordersCollection, order).then((res) => setOrderId(res.id));
 
       cart.forEach((product) => {
-        updateDoc(doc(db, "products", product.id), {
+        updateDoc(doc(db, "products", product.itemId), {
           stock: product.stock - product.quantity,
         });
       });

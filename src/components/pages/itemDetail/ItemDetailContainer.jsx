@@ -29,12 +29,7 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   const onAdd = (cantidad) => {
-    let data = {
-      ...product,
-      quantity: cantidad,
-    };
-
-    addItem(data);
+    addItem(product, cantidad);
     Swal.fire({
       position: "center",
       icon: "success",
